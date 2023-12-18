@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPG GAME</title>
+    <link rel="stylesheet" href="assets/styles/global.css" />
+  </head>
+  <body>
+    <section class="system">
+      <section class="create">
+        <h1>O Feiticeiro da Montanha de Fogo</h1>
+        <button class="initPerson">Criar Personagem</button>
+        <button>Regras</button>
+        <button class="start inative">Jogar</button>
+      </section>
+      <section class="rules">
+        <p>
+          O Feiticeiro da Montanha de Fogo é uma aventura de fantasia em que
+          você é o herói. Mas antes de começar, você deve criar seu personagem,
+          rolando os dados para determinar seus valores de Habilidade, Energia e
+          Sorte.
+        </p>
+        <h2>Determinando Habilidade, Energia e Sorte</h2>
+        <p>
+          Para determinar seus valores iniciais de Habilidade, Energia e Sorte:
+        </p>
+        <ul>
+          <li>
+            Role um dado, some 6 ao resultado e anote o total no espaço
+            Habilidade da ficha de aventura.
+          </li>
+          <li>
+            Role dois dados, some 12 ao resultado e anote o total no espaço
+            Energia.
+          </li>
+          <li>
+            Role um dado, some 6 ao resultado e anote o total no espaço sorte.
+          </li>
+        </ul>
+      </section>
+      <section class="createPerson dNone">
+        <button class="setHability">Definir Habilidade</button>
+        <p>Habilidade: <span class="hab">00</span></p>
+        <button class="setEnergy">Definir Energia</button>
+        <p>Energia: <span class="ener">00</span></p>
+        <button class="setLuck">Definir Sorte</button>
+        <p>Sorte: <span class="luck">00</span></p>
+        <button class="inative backPerson">Voltar</button>
+      </section>
+    </section>
+    <main class="game dNone">
+      <section class="status">
+        <img src="assets/assets/images/soldier.png" alt="" />
+        <p>
+          Habilidade:
+          <span
+            ><strong class="habilidade">00</strong>/<strong
+              class="habilidadeStatic"
+              >00</strong
+            ></span
+          >
+        </p>
+        <p>
+          Energia:
+          <span
+            ><strong class="energy">00</strong>/<strong class="energyStatic"
+              >00</strong
+            ></span
+          >
+        </p>
+        <p>
+          Sorte:
+          <span
+            ><strong class="luckGame">00</strong>/<strong class="luckStatic"
+              >00</strong
+            ></span
+          >
+        </p>
+      </section>
+      <section class="history">
+        <section class="container">
+          <div>
+            <h2 class="title">1</h2>
+            <p class="text"></p>
+          </div>
+          <section class="equips">
+            <div>
+              <h2>Equipamentos</h2>
+              <p>Espada</p>
+              <p>Lampião</p>
+            </div>
+            <div>
+              <h2>Ouro</h2>
+              <p>0</p>
+            </div>
+            <div>
+              <h2>Provisões</h2>
+              <p>10</p>
+            </div>
+          </section>
+        </section>
+        <section class="buttons"></section>
+      </section>
+    </main>
+    <script src="assets/scripts/main.js"></script>
+    <script src="assets/scripts/system.js"></script>
+  </body>
+</html>
