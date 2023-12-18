@@ -51,3 +51,11 @@ document.querySelector(".start").addEventListener("click", function () {
   document.querySelector(".system").classList.add("dNone");
   document.querySelector(".game").classList.remove("dNone");
 });
+
+document.querySelector(".btnRules").addEventListener("click", function () {
+  document.querySelector(".rules").classList.remove("dNone");
+});
+
+document.querySelector(".backRules").addEventListener("click", function () {
+  document.querySelector(".rules").classList.add("dNone");
+});

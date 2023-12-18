@@ -46,7 +46,12 @@ body {
   height: 50%;
   z-index: 1;
   padding: 20px;
-  display: none;
+  overflow: auto;
+}
+
+.rules p,
+.rules h2 {
+  font-family: "Courier New", Courier, monospace;
 }
 
 .createPerson {
