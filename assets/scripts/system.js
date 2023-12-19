@@ -2,9 +2,9 @@ function rolar_1d6() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
-let hab = false;
-let luck = false;
-let ener = false;
+let hab,
+  luck,
+  ener = false;
 
 document.querySelector(".initPerson").addEventListener("click", function () {
   document.querySelector(".createPerson").classList.remove("dNone");
