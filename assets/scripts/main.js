@@ -145,19 +145,6 @@ function criarBotoes(qtd, values, keys, type, valuesTest) {
     }
   }
 }
-//Implementar Função
-function testarSorte() {
-  let dices = rolar_1d6() + rolar_1d6();
-  if (dices <= personagem.sorte) {
-    criarTexto(value[0]);
-    personagem.sorte--;
-    document.querySelector(".luckGame").textContent = personagem.sorte;
-  } else {
-    criarTexto(value[1]);
-    personagem.sorte--;
-    document.querySelector(".luckGame").textContent = personagem.sorte;
-  }
-}
 
 function testarHabilidade(value) {
   let dices = rolar_1d6() + rolar_1d6();
