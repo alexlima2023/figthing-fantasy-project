@@ -18,6 +18,7 @@ document.querySelector(".setHability").addEventListener("click", function () {
   document.querySelector(".habilidade").textContent = personagem.habilidade;
   document.querySelector(".habilidadeStatic").textContent =
     personagem.habilidade;
+    validate();
 });
 
 document.querySelector(".setEnergy").addEventListener("click", function () {
@@ -27,6 +28,7 @@ document.querySelector(".setEnergy").addEventListener("click", function () {
   luck = true;
   document.querySelector(".energy").textContent = personagem.energia;
   document.querySelector(".energyStatic").textContent = personagem.energia;
+  validate();
 });
 
 document.querySelector(".setLuck").addEventListener("click", function () {
@@ -36,15 +38,7 @@ document.querySelector(".setLuck").addEventListener("click", function () {
   document.querySelector(".luckGame").textContent = personagem.sorte;
   document.querySelector(".setLuck").classList.add("inative");
   ener = true;
-  if (hab && luck && ener) {
-    document.querySelector(".backPerson").classList.remove("inative");
-    document
-      .querySelector(".backPerson")
-      .addEventListener("click", function () {
-        document.querySelector(".createPerson").classList.add("dNone");
-      });
-    document.querySelector(".start").classList.remove("inative");
-  }
+  validate();
 });
 
 document.querySelector(".start").addEventListener("click", function () {
@@ -59,3 +53,15 @@ document.querySelector(".btnRules").addEventListener("click", function () {
 document.querySelector(".backRules").addEventListener("click", function () {
   document.querySelector(".rules").classList.add("dNone");
 });
+
+function validate() {
+  if (hab && luck && ener) {
+    document.querySelector(".backPerson").classList.remove("inative");
+    document
+      .querySelector(".backPerson")
+      .addEventListener("click", function () {
+        document.querySelector(".createPerson").classList.add("dNone");
+      });
+    document.querySelector(".start").classList.remove("inative");
+  }
+}
