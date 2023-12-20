@@ -23,6 +23,16 @@ const jogo = {
       `,
       opcoes: { _71: "Para o Oeste", _278: "Para o Leste" },
     },
+    _33: {
+      titulo: "33",
+      tipo: "historia",
+      texto: `A criatura acorda sobressaltada. Ela pula e corre na sua direção, desarmada. Com sua espada você deveria ser capaz de derrotá-la, mas seus
+      dentes parecem perigosos. Você pode escapar pela porta(vá para 320) ou ficar e lutar com o orc. Se derrotá-lo, você pode pegar a caixa. Vá para 147.`,
+      opcoes: {
+        _320: "Escapar pela porta",
+        _lutar: { name: "orc", habilidade: 6, energia: 4 },
+      },
+    },
     _71: {
       titulo: "71",
       tipo: "teste",
@@ -33,11 +43,21 @@ const jogo = {
       opcoes: { sorte: "Testar Sorte" },
       valores: ["_301", "_248"],
     },
-    _92: {
-      titulo: "92",
+    _82: {
+      titulo: "82",
       tipo: "historia",
       texto: `Você retorna para a bifurcação na passagem. À esquerda, você vê a entrada da à distância, mas segue em frente. Vá para a 71.`,
       opcoes: { _71: "Para o Oeste" },
+    },
+    _92: {
+      titulo: "92",
+      tipo: "historia",
+      texto: `A porta abre, revelando um aposento pequeno e malcheiroso. No centro há uma mesa de madeira balouçante com uma vela acesa. Embaixo da mesa 
+      há uma pequena caixa de madeira. Dormindo em um colchão de palha em um canto mais afastado do aposento há uma criatura pequena, entroncada, com uma
+      cara feia e verruguenta, o mesmo tipo de criatura que você viu dormindo no posto de sentinela. Deve ser o guarda do turno da noite. Você pode retornar
+      ao corredor e ir para o norte(vá para a 208) ou tentar atravessar furtivamente o aposento e tentar pegar a caixa sem despertar a criatura. Se quiser
+      roubar a caixa, teste a sorte. Se for sortudo, ela não acorda – vá para a 147. Se for azarado, vá para a 33.`,
+      opcoes: { _208: "Para o norte", _testarSorte: ["_147", "_33"] },
     },
     _156: {
       titulo: "156",
@@ -48,6 +68,13 @@ const jogo = {
       `,
       opcoes: { testarHabilidade: "Testar Habilidade" },
       valores: ["_343", "_92"],
+    },
+    _301: {
+      titulo: "301",
+      tipo: "historia",
+      texto: `A sua esquerda, no lado oeste da passagem, há uma porta de madeira rudimentar. Você cola o ouvido na porta e ouve um barulho que pode ser de
+       alguma criatura roncando. Você quer abrir a porta? Nesse caso vá para a 82. Se quiser continuar para o norte, vá para 208.`,
+      opcoes: { _82: "Abrir a porta", _208: "Ir para o norte" },
     },
     _278: {
       titulo: "278",
