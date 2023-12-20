@@ -69,19 +69,28 @@ const jogo = {
       opcoes: { testarHabilidade: "Testar Habilidade" },
       valores: ["_343", "_92"],
     },
-    _301: {
-      titulo: "301",
+    _248: {
+      titulo: "248",
       tipo: "historia",
-      texto: `A sua esquerda, no lado oeste da passagem, há uma porta de madeira rudimentar. Você cola o ouvido na porta e ouve um barulho que pode ser de
-       alguma criatura roncando. Você quer abrir a porta? Nesse caso vá para a 82. Se quiser continuar para o norte, vá para 208.`,
-      opcoes: { _82: "Abrir a porta", _208: "Ir para o norte" },
+      texto: `A criatura que acabou de acordar é um orc! Ele se põe de pé lentamente e se vira para puxar uma corda que provavelmente é um alarme. Você precisa atacá-lo rapidamente.
+      Se o derrotar, pode continuar subindo a passagem - vá para 301.
+      `,
+      opcoes: { _Batalha: "Batalhar" },
     },
+
     _278: {
       titulo: "278",
       tipo: "historia",
       texto: `A passagem logo termina em uma porta de madeira trancada. Você cola o ouvido na porta mas não ouve nada. Se quiser tentar derrubar a porta, 
       vá para a 156. Se preferir voltar à bifurcação, vá para 92.`,
       opcoes: { _156: "Tentar derrubar a porta", _92: "Voltar a Bifurcação" },
+    },
+    _301: {
+      titulo: "301",
+      tipo: "historia",
+      texto: `A sua esquerda, no lado oeste da passagem, há uma porta de madeira rudimentar. Você cola o ouvido na porta e ouve um barulho que pode ser de
+       alguma criatura roncando. Você quer abrir a porta? Nesse caso vá para a 82. Se quiser continuar para o norte, vá para 208.`,
+      opcoes: { _82: "Abrir a porta", _208: "Ir para o norte" },
     },
     _343: {
       titulo: "343",
