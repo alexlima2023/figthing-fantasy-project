@@ -7,61 +7,80 @@ let hab,
   ener = false;
 
 document.querySelector(".initPerson").addEventListener("click", function () {
-  document.querySelector(".createPerson").classList.remove("dNone");
+  removeDisplayNone(".createPerson");
 });
 
 document.querySelector(".setHability").addEventListener("click", function () {
-  personagem.habilidade = rolar_1d6() + 6;
-  document.querySelector(".hab").textContent = personagem.habilidade;
-  document.querySelector(".setHability").classList.add("inative");
   hab = true;
-  document.querySelector(".habilidade").textContent = personagem.habilidade;
-  document.querySelector(".habilidadeStatic").textContent =
-    personagem.habilidade;
-    validate();
+  personagem.habilidade = rolar_1d6() + 6;
+  addInative(".setHability");
+  changeTextContent(
+    [".hab", ".habilidade", ".habilidadeStatic"],
+    personagem.habilidade
+  );
+  personagem.habilidade;
+  validate();
 });
 
 document.querySelector(".setEnergy").addEventListener("click", function () {
-  personagem.energia = rolar_1d6() + rolar_1d6() + 12;
-  document.querySelector(".ener").textContent = personagem.energia;
-  document.querySelector(".setEnergy").classList.add("inative");
   luck = true;
-  document.querySelector(".energy").textContent = personagem.energia;
-  document.querySelector(".energyStatic").textContent = personagem.energia;
+  personagem.energia = rolar_1d6() + rolar_1d6() + 12;
+  addInative(".setEnergy");
+  changeTextContent([".ener", ".energy", ".energyStatic"], personagem.energia);
   validate();
 });
 
 document.querySelector(".setLuck").addEventListener("click", function () {
-  personagem.sorte = rolar_1d6() + 6;
-  document.querySelector(".luck").textContent = personagem.sorte;
-  document.querySelector(".luckStatic").textContent = personagem.sorte;
-  document.querySelector(".luckGame").textContent = personagem.sorte;
-  document.querySelector(".setLuck").classList.add("inative");
   ener = true;
+  personagem.sorte = rolar_1d6() + 6;
+  document.querySelector(".setLuck").classList.add("inative");
+  changeTextContent([".luck", ".luckStatic", ".luckGame"], personagem.sorte);
   validate();
 });
 
 document.querySelector(".start").addEventListener("click", function () {
-  document.querySelector(".system").classList.add("dNone");
-  document.querySelector(".game").classList.remove("dNone");
+  addDisplayNone(".system");
+  removeDisplayNone(".game");
 });
 
 document.querySelector(".btnRules").addEventListener("click", function () {
-  document.querySelector(".rules").classList.remove("dNone");
+  removeDisplayNone(".rules");
 });
 
 document.querySelector(".backRules").addEventListener("click", function () {
-  document.querySelector(".rules").classList.add("dNone");
+  addDisplayNone(".rules");
 });
 
 function validate() {
   if (hab && luck && ener) {
-    document.querySelector(".backPerson").classList.remove("inative");
+    removeInative(".backPerson");
+    removeInative(".start");
     document
       .querySelector(".backPerson")
       .addEventListener("click", function () {
-        document.querySelector(".createPerson").classList.add("dNone");
+        addDisplayNone(".createPerson");
       });
-    document.querySelector(".start").classList.remove("inative");
   }
+}
+
+function changeTextContent(array, newTextContent) {
+  array.forEach((className) => {
+    document.querySelector(className).textContent = newTextContent;
+  });
+}
+
+function removeDisplayNone(className) {
+  document.querySelector(className).classList.remove("dNone");
+}
+
+function addDisplayNone(className) {
+  document.querySelector(className).classList.add("dNone");
+}
+
+function removeInative(className) {
+  document.querySelector(className).classList.remove("inative");
+}
+
+function addInative(className) {
+  document.querySelector(className).classList.add("inative");
 }
