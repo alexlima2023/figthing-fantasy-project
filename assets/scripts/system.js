@@ -10,31 +10,31 @@ document.querySelector(".initPerson").addEventListener("click", function () {
   removeDisplayNone(".createPerson");
 });
 
-document.querySelector(".setHability").addEventListener("click", function () {
+document.querySelector(".setAbility").addEventListener("click", function () {
   hab = true;
-  personagem.habilidade = rolar_1d6() + 6;
-  addInative(".setHability");
+  character.ability = rolar_1d6() + 6;
+  addInactive(".setAbility");
   changeTextContent(
     [".hab", ".habilidade", ".habilidadeStatic"],
-    personagem.habilidade
+    character.ability
   );
-  personagem.habilidade;
+  character.ability;
   validate();
 });
 
 document.querySelector(".setEnergy").addEventListener("click", function () {
   luck = true;
-  personagem.energia = rolar_1d6() + rolar_1d6() + 12;
-  addInative(".setEnergy");
-  changeTextContent([".ener", ".energy", ".energyStatic"], personagem.energia);
+  character.energy = rolar_1d6() + rolar_1d6() + 12;
+  addInactive(".setEnergy");
+  changeTextContent([".ener", ".energy", ".energyStatic"], character.energy);
   validate();
 });
 
 document.querySelector(".setLuck").addEventListener("click", function () {
   ener = true;
-  personagem.sorte = rolar_1d6() + 6;
-  document.querySelector(".setLuck").classList.add("inative");
-  changeTextContent([".luck", ".luckStatic", ".luckGame"], personagem.sorte);
+  character.luck = rolar_1d6() + 6;
+  document.querySelector(".setLuck").classList.add("inactive");
+  changeTextContent([".luck", ".luckStatic", ".luckGame"], character.luck);
   validate();
 });
 
@@ -53,8 +53,8 @@ document.querySelector(".backRules").addEventListener("click", function () {
 
 function validate() {
   if (hab && luck && ener) {
-    removeInative(".backPerson");
-    removeInative(".start");
+    removeInactive(".backPerson");
+    removeInactive(".start");
     document
       .querySelector(".backPerson")
       .addEventListener("click", function () {
@@ -77,10 +77,10 @@ function addDisplayNone(className) {
   document.querySelector(className).classList.add("dNone");
 }
 
-function removeInative(className) {
-  document.querySelector(className).classList.remove("inative");
+function removeInactive(className) {
+  document.querySelector(className).classList.remove("inactive");
 }
 
-function addInative(className) {
-  document.querySelector(className).classList.add("inative");
+function addInactive(className) {
+  document.querySelector(className).classList.add("inactive");
 }

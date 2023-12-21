@@ -32,7 +32,7 @@ body {
   display: none;
 }
 
-.inative {
+.inactive {
   pointer-events: none;
   opacity: 50%;
 }

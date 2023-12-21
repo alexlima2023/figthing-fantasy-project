@@ -1,5 +1,5 @@
 const character = {
-  hability: 0,
+  ability: 0,
   energy: 0,
   luck: 0,
   equips: ["Espada", "Lampião"],
@@ -30,8 +30,9 @@ const game = {
       dentes parecem perigosos. Você pode escapar pela porta(vá para 320) ou ficar e lutar com o orc. Se derrotá-lo, você pode pegar a caixa. Vá para 147.`,
       buttons: {
         _320: "Escapar pela porta",
-        _lutar: { name: "orc", habilidade: 6, energia: 4 },
+        _battle: "Lutar contra o Orc",
       },
+      values: ["_147"],
     },
     _71: {
       tittle: "71",
@@ -40,34 +41,37 @@ const game = {
       dele, vê uma criatura estranha, parecida com um goblin, trajando armadura de couro, dormindo em serviço. Você pode tentar passar furtivamente por ele. 
       Teste a sorte, Se for sortudo, ele não acorda e permanece roncando alto - Vá para 301. Se for Azarado, você pisa em algumas pedras soltas e os olhos 
       dele se abrem - Vá para a 248.`,
-      buttons: { sorte: "Testar Sorte" },
-      valores: ["_301", "_248"],
+      buttons: { _luckTest: "Testar Sorte" },
+      values: ["_301", "_248"],
     },
     _82: {
       tittle: "82",
-      type: "history",
-      text: `Você retorna para a bifurcação na passagem. À esquerda, você vê a entrada da à distância, mas segue em frente. Vá para a 71.`,
-      buttons: { _71: "Para o Oeste" },
+      type: "luckTest",
+      text: `A porta abre, revelando um aposento pequeno e malcheiroso. No centro há uma mesa de madeira balouçante com uma vela acesa. Embaixo 
+      da mesa há uma pequena caixa de madeira. Dormindo em um colchão de palha no canto mais afastado do aposento há uma criatura pequena, entroncada, 
+      com uma cara feia e verruguenta; o mesmo tipo de criatura que você viu dormindo no posto de sentinela. Deve ser o guarda do turno da noite. Você 
+      pode retornar ao corredor e ir para o norte (vá para 208) ou atravessar furtivamente o aposento e tentar pegar a caixa, teste a sorte. Se for sortudo, 
+      ela não acorda – vá para 147. Se for azarado, vá para 33.
+      `,
+      buttons: { _luckTest: "Testar Sorte" },
+      values: ["_147", "_33"],
     },
     _92: {
       tittle: "92",
       type: "history",
-      text: `A porta abre, revelando um aposento pequeno e malcheiroso. No centro há uma mesa de madeira balouçante com uma vela acesa. Embaixo da mesa 
-      há uma pequena caixa de madeira. Dormindo em um colchão de palha em um canto mais afastado do aposento há uma criatura pequena, entroncada, com uma
-      cara feia e verruguenta, o mesmo type de criatura que você viu dormindo no posto de sentinela. Deve ser o guarda do turno da noite. Você pode retornar
-      ao corredor e ir para o norte(vá para a 208) ou tentar atravessar furtivamente o aposento e tentar pegar a caixa sem despertar a criatura. Se quiser
-      roubar a caixa, teste a sorte. Se for sortudo, ela não acorda – vá para a 147. Se for azarado, vá para a 33.`,
-      buttons: { _208: "Para o norte", _testarSorte: ["_147", "_33"] },
+      text: `Você retorna para a bifurcação na passagem. À esquerda, você vê a entrada da caverna à distância, mas segue em frente. Vá para 71.
+      `,
+      buttons: { _71: "Ir para 71" },
     },
     _156: {
       tittle: "156",
-      type: "habilityTest",
+      type: "abilityTest",
 
       text: `Você dá um encontrão na porta. Role dois dados. Se o resultado for menor ou igual a sua Habilidade, você é bem-sucedido – vá para 343. 
       Se o resultado for maior que a sua Habilidade, você se fere e decide não tentar de novo. Volte para 92.
       `,
-      buttons: { testarHabilidade: "Testar Habilidade" },
-      valores: ["_343", "_92"],
+      buttons: { _abilityTest: "Testar Habilidade" },
+      values: ["_343", "_92"],
     },
     _248: {
       tittle: "248",
@@ -75,7 +79,7 @@ const game = {
       text: `A criatura que acabou de acordar é um orc! Ele se põe de pé lentamente e se vira para puxar uma corda que provavelmente é um alarme. Você precisa atacá-lo rapidamente.
       Se o derrotar, pode continuar subindo a passagem - vá para 301.
       `,
-      buttons: { _Batalha: "Batalhar" },
+      buttons: { _battle: "Batalhar" },
       _lutar: { name: "orc", habilidade: 6, energia: 4 },
     },
     _278: {
@@ -97,7 +101,7 @@ const game = {
       type: "damage",
       text: `A porta cede e você cai de cabeça no aposento. Mas seu coração fica apertado quando você se dá conta de que não vai cair no chão, 
       mas em um poço! Por sorte, o poço não é muito fundo e você cai por mais ou menos dois metros. Perca 1 ponto de Energia devido aos ferimentos, 
-      escale o poço e saia pela porta rumo ao oeste. Vá para a 92..
+      escale o poço e saia pela porta rumo ao oeste. Vá para a 92.
       `,
       dano: { energia: -1 },
       buttons: { _92: "Ir para a 92" },
@@ -115,67 +119,53 @@ function createText(value) {
         Object.values(game.world[local].buttons),
         Object.keys(game.world[local].buttons),
         game.world[local].type,
-        game.world[local].valores
+        game.world[local].values
       );
     }
   }
 }
 
 function createButtons(qtd, values, keys, type, valuesTest) {
-  const actionsButtons = document.querySelector(".buttons");
-  actionsButtons.innerHTML = "";
   if (type === "history") {
-    if (qtd == 1) {
-      const button1 = document.createElement("button");
-      button1.textContent = values[0];
-      button1.addEventListener("click", () => createText(keys[0]));
-      actionsButtons.appendChild(button1);
-    }
-    if (qtd == 2) {
-      const button1 = document.createElement("button");
-      const button2 = document.createElement("button");
-      button1.textContent = values[0];
-      button2.textContent = values[1];
-      button1.addEventListener("click", () => createText(keys[0]));
-      button2.addEventListener("click", () => createText(keys[1]));
-      actionsButtons.appendChild(button1);
-      actionsButtons.appendChild(button2);
-    }
-  } else if (type === "luckTest") {
-    if (qtd == 1) {
-      const button1 = document.createElement("button");
-      button1.textContent = values[0];
-      button1.addEventListener("click", () => testLuck(valuesTest));
-      actionsButtons.appendChild(button1);
-    }
-  } else if (type === "dano") {
-    character.energia -= 1;
-    document.querySelector(".energy").textContent = character.energy;
-    if (qtd == 1) {
-      const button1 = document.createElement("button");
-      button1.textContent = values[0];
-      button1.addEventListener("click", () => createText(keys[0]));
-      actionsButtons.appendChild(button1);
-    }
-  }
-
-  if (type === "history") {
+    createQuantityButtons(qtd, values, keys);
   }
 
   if (type === "luckTest") {
+    createQuantityButtons(qtd, values, keys, valuesTest);
   }
 
-  if (type == "habilityTest") {
+  if (type == "abilityTest") {
+    createQuantityButtons(qtd, values, keys, valuesTest);
   }
 
   if (type === "battle") {
+    createQuantityButtons(qtd, values, keys);
   }
 
   if (type === "damage") {
+    createQuantityButtons(qtd, values, keys);
   }
 }
 
-function testLuck(value) {
+function createQuantityButtons(qtd, textContent, callbackFunction, valuesTest) {
+  const actionsButtons = document.querySelector(".buttons");
+  actionsButtons.innerHTML = "";
+  for (let i = 0; i < qtd; i++) {
+    const button = document.createElement("button");
+    button.textContent = textContent[i];
+    if (String(callbackFunction) === "_luckTest") {
+      button.addEventListener("click", () => luckTest(valuesTest));
+    }
+    if (String(callbackFunction) === "_abilityTest") {
+      button.addEventListener("click", () => abilityTest(valuesTest));
+    } else {
+      button.addEventListener("click", () => createText(callbackFunction[i]));
+    }
+    actionsButtons.appendChild(button);
+  }
+}
+
+function luckTest(value) {
   let dices = rolar_1d6() + rolar_1d6();
   if (dices <= character.luck) {
     createText(value[0]);
@@ -189,13 +179,9 @@ function testLuck(value) {
   console.log(value[0], value[1]);
 }
 
-function testarHabilidade(value) {
+function abilityTest(value) {
   let dices = rolar_1d6() + rolar_1d6();
-  if (dices <= character.habilidade) {
-    createText(value[0]);
-  } else {
-    createText(value[1]);
-  }
+  dices <= character.ability ? createText(value[0]) : createText(value[1]);
 }
 
 createText("_01");
