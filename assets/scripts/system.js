@@ -1,4 +1,4 @@
-function rolar_1d6() {
+function role_1d6() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
@@ -12,7 +12,7 @@ document.querySelector(".initPerson").addEventListener("click", function () {
 
 document.querySelector(".setAbility").addEventListener("click", function () {
   hab = true;
-  character.ability = rolar_1d6() + 6;
+  character.ability = role_1d6() + 6;
   addInactive(".setAbility");
   changeTextContent(
     [".hab", ".habilidade", ".habilidadeStatic"],
@@ -24,7 +24,7 @@ document.querySelector(".setAbility").addEventListener("click", function () {
 
 document.querySelector(".setEnergy").addEventListener("click", function () {
   luck = true;
-  character.energy = rolar_1d6() + rolar_1d6() + 12;
+  character.energy = role_1d6() + role_1d6() + 12;
   addInactive(".setEnergy");
   changeTextContent([".ener", ".energy", ".energyStatic"], character.energy);
   validate();
@@ -32,7 +32,7 @@ document.querySelector(".setEnergy").addEventListener("click", function () {
 
 document.querySelector(".setLuck").addEventListener("click", function () {
   ener = true;
-  character.luck = rolar_1d6() + 6;
+  character.luck = role_1d6() + 6;
   document.querySelector(".setLuck").classList.add("inactive");
   changeTextContent([".luck", ".luckStatic", ".luckGame"], character.luck);
   validate();

@@ -166,7 +166,7 @@ function createQuantityButtons(qtd, textContent, callbackFunction, valuesTest) {
 }
 
 function luckTest(value) {
-  let dices = rolar_1d6() + rolar_1d6();
+  let dices = role_1d6() + role_1d6();
   if (dices <= character.luck) {
     createText(value[0]);
     character.luck--;
@@ -180,7 +180,7 @@ function luckTest(value) {
 }
 
 function abilityTest(value) {
-  let dices = rolar_1d6() + rolar_1d6();
+  let dices = role_1d6() + role_1d6();
   dices <= character.ability ? createText(value[0]) : createText(value[1]);
 }
 

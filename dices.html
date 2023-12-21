@@ -7,13 +7,345 @@
     <link rel="stylesheet" href="assets/styles/dices.css" />
   </head>
   <body>
-    <div class="dice">
-      <div class="face front"></div>
-      <div class="face back"></div>
-      <div class="face top"></div>
-      <div class="face bottom"></div>
-      <div class="face right"></div>
-      <div class="face left"></div>
-    </div>
+    <section class="dNone">
+      <!-- 1 -->
+      <div class="dice first-face">
+        <span class="dot"></span>
+      </div>
+      <!-- 2 -->
+      <div class="dice second-face">
+        <span class="dot"> </span>
+        <span class="dot"> </span>
+      </div>
+      <!-- 3 -->
+      <div class="dice third-face">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <!-- 4 -->
+      <div class="fourth-face dice">
+        <div class="column">
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="column">
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <!-- 5 -->
+      <div class="fifth-face dice">
+        <div class="column">
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="column">
+          <span class="dot"></span>
+        </div>
+
+        <div class="column">
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <!-- 6 -->
+      <div class="fourth-face dice">
+        <div class="column">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="column">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </section>
+    <section class="container"></section>
+    <button onclick="role_2d6()">Role Dices</button>
   </body>
+  <script>
+    function role_1d6() {
+      let diceValue = Math.floor(Math.random() * 6) + 1;
+      console.log(diceValue);
+      const container = document.querySelector(".container");
+      container.innerHTML = "";
+      if (diceValue === 1) {
+        const div = document.createElement("div");
+        const dot = document.createElement("span");
+        div.classList.add("dice");
+        div.classList.add("first-face");
+        dot.classList.add("dot");
+        div.appendChild(dot);
+        container.appendChild(div);
+      }
+      if (diceValue === 2) {
+        const div = document.createElement("div");
+        const dot = document.createElement("span");
+        const dot2 = document.createElement("span");
+        div.classList.add("dice");
+        div.classList.add("second-face");
+        dot.classList.add("dot");
+        dot2.classList.add("dot");
+        div.appendChild(dot);
+        div.appendChild(dot2);
+        container.appendChild(div);
+      }
+      if (diceValue === 3) {
+        const div = document.createElement("div");
+        const dot = document.createElement("span");
+        const dot2 = document.createElement("span");
+        const dot3 = document.createElement("span");
+        div.classList.add("dice");
+        div.classList.add("third-face");
+        dot.classList.add("dot");
+        dot2.classList.add("dot");
+        dot3.classList.add("dot");
+        div.appendChild(dot);
+        div.appendChild(dot2);
+        div.appendChild(dot3);
+        container.appendChild(div);
+      }
+      if (diceValue === 4) {
+        const div = document.createElement("div");
+        const divColum1 = document.createElement("div");
+        const divColum2 = document.createElement("div");
+        const dot = document.createElement("span");
+        const dot2 = document.createElement("span");
+        const dot3 = document.createElement("span");
+        const dot4 = document.createElement("span");
+        div.classList.add("dice");
+        div.classList.add("fourth-face");
+        divColum1.classList.add("column");
+        divColum2.classList.add("column");
+        dot.classList.add("dot");
+        dot2.classList.add("dot");
+        dot3.classList.add("dot");
+        dot4.classList.add("dot");
+        divColum1.appendChild(dot);
+        divColum1.appendChild(dot2);
+        divColum2.appendChild(dot3);
+        divColum2.appendChild(dot4);
+        div.appendChild(divColum1);
+        div.appendChild(divColum2);
+        container.appendChild(div);
+      }
+      if (diceValue === 5) {
+        const div = document.createElement("div");
+        const divColum1 = document.createElement("div");
+        const divColum2 = document.createElement("div");
+        const divColum3 = document.createElement("div");
+        const dot = document.createElement("span");
+        const dot2 = document.createElement("span");
+        const dot3 = document.createElement("span");
+        const dot4 = document.createElement("span");
+        const dot5 = document.createElement("span");
+        div.classList.add("dice");
+        div.classList.add("fifth-face");
+        divColum1.classList.add("column");
+        divColum2.classList.add("column");
+        divColum3.classList.add("column");
+        dot.classList.add("dot");
+        dot2.classList.add("dot");
+        dot3.classList.add("dot");
+        dot4.classList.add("dot");
+        dot5.classList.add("dot");
+        divColum1.appendChild(dot);
+        divColum1.appendChild(dot2);
+        divColum2.appendChild(dot3);
+        divColum3.appendChild(dot4);
+        divColum3.appendChild(dot5);
+        div.appendChild(divColum1);
+        div.appendChild(divColum2);
+        div.appendChild(divColum3);
+        container.appendChild(div);
+      }
+      if (diceValue === 6) {
+        const div = document.createElement("div");
+        const divColum1 = document.createElement("div");
+        const divColum2 = document.createElement("div");
+        const dot = document.createElement("span");
+        const dot2 = document.createElement("span");
+        const dot3 = document.createElement("span");
+        const dot4 = document.createElement("span");
+        const dot5 = document.createElement("span");
+        const dot6 = document.createElement("span");
+        div.classList.add("dice");
+        div.classList.add("fourth-face");
+        divColum1.classList.add("column");
+        divColum2.classList.add("column");
+        dot.classList.add("dot");
+        dot2.classList.add("dot");
+        dot3.classList.add("dot");
+        dot4.classList.add("dot");
+        dot5.classList.add("dot");
+        dot6.classList.add("dot");
+        divColum1.appendChild(dot);
+        divColum1.appendChild(dot2);
+        divColum1.appendChild(dot3);
+        divColum2.appendChild(dot4);
+        divColum2.appendChild(dot5);
+        divColum2.appendChild(dot6);
+        div.appendChild(divColum1);
+        div.appendChild(divColum2);
+        container.appendChild(div);
+      }
+      return diceValue;
+    }
+    function role_2d6() {
+      const container = document.querySelector(".container");
+      container.innerHTML = "";
+      let diceValue = Math.floor(Math.random() * 6) + 1;
+      let diceValue2 = Math.floor(Math.random() * 6) + 1;
+      console.log(diceValue);
+      console.log(diceValue2);
+      if (diceValue === 1 || diceValue2 === 1) {
+        const div = document.createElement("div");
+        const dot = document.createElement("span");
+        div.classList.add("dice");
+        div.classList.add("first-face");
+        dot.classList.add("dot");
+        div.appendChild(dot);
+        container.appendChild(div);
+        if (diceValue === diceValue2) {
+          const cloneDice = div.cloneNode(true);
+          container.appendChild(cloneDice);
+        }
+      }
+      if (diceValue === 2 || diceValue2 === 2) {
+        const div = document.createElement("div");
+        const dot = document.createElement("span");
+        const dot2 = document.createElement("span");
+        div.classList.add("dice");
+        div.classList.add("second-face");
+        dot.classList.add("dot");
+        dot2.classList.add("dot");
+        div.appendChild(dot);
+        div.appendChild(dot2);
+        container.appendChild(div);
+        if (diceValue === diceValue2) {
+          const cloneDice = div.cloneNode(true);
+          container.appendChild(cloneDice);
+        }
+      }
+      if (diceValue === 3 || diceValue2 === 3) {
+        const div = document.createElement("div");
+        const dot = document.createElement("span");
+        const dot2 = document.createElement("span");
+        const dot3 = document.createElement("span");
+        div.classList.add("dice");
+        div.classList.add("third-face");
+        dot.classList.add("dot");
+        dot2.classList.add("dot");
+        dot3.classList.add("dot");
+        div.appendChild(dot);
+        div.appendChild(dot2);
+        div.appendChild(dot3);
+        container.appendChild(div);
+        if (diceValue === diceValue2) {
+          const cloneDice = div.cloneNode(true);
+          container.appendChild(cloneDice);
+        }
+      }
+      if (diceValue === 4 || diceValue2 === 4) {
+        const div = document.createElement("div");
+        const divColum1 = document.createElement("div");
+        const divColum2 = document.createElement("div");
+        const dot = document.createElement("span");
+        const dot2 = document.createElement("span");
+        const dot3 = document.createElement("span");
+        const dot4 = document.createElement("span");
+        div.classList.add("dice");
+        div.classList.add("fourth-face");
+        divColum1.classList.add("column");
+        divColum2.classList.add("column");
+        dot.classList.add("dot");
+        dot2.classList.add("dot");
+        dot3.classList.add("dot");
+        dot4.classList.add("dot");
+        divColum1.appendChild(dot);
+        divColum1.appendChild(dot2);
+        divColum2.appendChild(dot3);
+        divColum2.appendChild(dot4);
+        div.appendChild(divColum1);
+        div.appendChild(divColum2);
+        container.appendChild(div);
+        if (diceValue === diceValue2) {
+          const cloneDice = div.cloneNode(true);
+          container.appendChild(cloneDice);
+        }
+      }
+      if (diceValue === 5 || diceValue2 === 5) {
+        const div = document.createElement("div");
+        const divColum1 = document.createElement("div");
+        const divColum2 = document.createElement("div");
+        const divColum3 = document.createElement("div");
+        const dot = document.createElement("span");
+        const dot2 = document.createElement("span");
+        const dot3 = document.createElement("span");
+        const dot4 = document.createElement("span");
+        const dot5 = document.createElement("span");
+        div.classList.add("dice");
+        div.classList.add("fifth-face");
+        divColum1.classList.add("column");
+        divColum2.classList.add("column");
+        divColum3.classList.add("column");
+        dot.classList.add("dot");
+        dot2.classList.add("dot");
+        dot3.classList.add("dot");
+        dot4.classList.add("dot");
+        dot5.classList.add("dot");
+        divColum1.appendChild(dot);
+        divColum1.appendChild(dot2);
+        divColum2.appendChild(dot3);
+        divColum3.appendChild(dot4);
+        divColum3.appendChild(dot5);
+        div.appendChild(divColum1);
+        div.appendChild(divColum2);
+        div.appendChild(divColum3);
+        container.appendChild(div);
+        if (diceValue === diceValue2) {
+          const cloneDice = div.cloneNode(true);
+          container.appendChild(cloneDice);
+        }
+      }
+      if (diceValue === 6 || diceValue2 === 6) {
+        const div = document.createElement("div");
+        const divColum1 = document.createElement("div");
+        const divColum2 = document.createElement("div");
+        const dot = document.createElement("span");
+        const dot2 = document.createElement("span");
+        const dot3 = document.createElement("span");
+        const dot4 = document.createElement("span");
+        const dot5 = document.createElement("span");
+        const dot6 = document.createElement("span");
+        div.classList.add("dice");
+        div.classList.add("fourth-face");
+        divColum1.classList.add("column");
+        divColum2.classList.add("column");
+        dot.classList.add("dot");
+        dot2.classList.add("dot");
+        dot3.classList.add("dot");
+        dot4.classList.add("dot");
+        dot5.classList.add("dot");
+        dot6.classList.add("dot");
+        divColum1.appendChild(dot);
+        divColum1.appendChild(dot2);
+        divColum1.appendChild(dot3);
+        divColum2.appendChild(dot4);
+        divColum2.appendChild(dot5);
+        divColum2.appendChild(dot6);
+        div.appendChild(divColum1);
+        div.appendChild(divColum2);
+        container.appendChild(div);
+        if (diceValue === diceValue2) {
+          const cloneDice = div.cloneNode(true);
+          container.appendChild(cloneDice);
+        }
+      }
+      return diceValue + diceValue2;
+    }
+  </script>
 </html>
