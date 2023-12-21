@@ -76,8 +76,8 @@ const jogo = {
       Se o derrotar, pode continuar subindo a passagem - vá para 301.
       `,
       opcoes: { _Batalha: "Batalhar" },
+      _lutar: { name: "orc", habilidade: 6, energia: 4 },
     },
-
     _278: {
       titulo: "278",
       tipo: "historia",
