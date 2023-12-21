@@ -132,8 +132,15 @@ function criarBotoes(qtd, values, keys, type, valuesTest) {
       actionsButtons.appendChild(button1);
       actionsButtons.appendChild(button2);
     }
+
   } else if (type === "teste") {
-    testarHabilidade(valuesTest);
+    if (qtd == 1) {
+      const button1 = document.createElement("button");
+      button1.textContent = values[0];
+      button1.addEventListener("click", () => testarSorte(valuesTest));
+      actionsButtons.appendChild(button1);
+    }
+
   } else if (type === "dano") {
     personagem.energia -= 1;
     document.querySelector(".energy").textContent = personagem.energia;
@@ -144,6 +151,21 @@ function criarBotoes(qtd, values, keys, type, valuesTest) {
       actionsButtons.appendChild(button1);
     }
   }
+}
+
+function testarSorte(value) {
+  let dices = rolar_1d6() + rolar_1d6();
+  if (dices <= personagem.sorte) {
+    criarTexto(value[0]);
+    personagem.sorte--;
+    document.querySelector(".luckGame").textContent = personagem.sorte;
+
+  } else {
+    criarTexto(value[1]);
+    personagem.sorte--;
+    document.querySelector(".luckGame").textContent = personagem.sorte;
+  }
+  console.log(value[0], value[1]);
 }
 
 function testarHabilidade(value) {
